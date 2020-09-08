@@ -1,0 +1,16 @@
+.fa-check{
+    color: greenyellow;
+}
+.number-icon {
+  color: greenyellow;
+  display: inline-block;
+  border-radius: 60px;
+  box-shadow: 0px 0px 2px white;
+  padding: 0.5em 0.6em;
+}
+.done{
+    text-decoration-line: line-through;
+}
+.done i{
+    color: grey;
+}
