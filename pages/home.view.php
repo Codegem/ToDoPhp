@@ -1,3 +1,7 @@
+<a class="btn btn-secondary">Edit</a>
+<a class="btn btn-warning">Delete</a>
+<a class="btn btn-success">Add</a>
+
 <table class="table table-striped table-dark">
   <thead>
     <tr>
