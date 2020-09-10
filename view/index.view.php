@@ -11,6 +11,7 @@
 <body>
 <div class="container-fluid">
 <?php 
+include 'inc/functions.php';
 require $_SERVER[''].'/opt/lampp/htdocs/TodoList/router.php';
 ?>
 </div> 
