@@ -1,7 +1,5 @@
 <div class="button-list text-center m-2">
-<a class="btn btn-secondary">Edit</a>
-<a class="btn btn-warning">Delete</a>
-<a class="btn btn-success">Add</a>
+<a class="btn btn-success">Add New Task</a>
 </div>
 <table class="table table-striped table-dark">
   <thead>
@@ -13,6 +11,7 @@
       <th scope="col">Status</th>
       <th scope="col">Percent Complete</th>
       <th scope="col">Modified On</th>
+      <th scope="col">Delete/Edit</th>
     </tr>
   </thead>
   <tbody>
@@ -29,6 +28,10 @@
       </div>  
       </td>
       <td>2020 09 08 | 21:00</td>
+      <td>
+      <a class="btn btn-warning">Edit</a>
+      <a class="btn btn-danger">Delete</a>
+      </td>
     </tr>
     <tr>
       <th scope="row"><i class="far fa-gem number-icon"></i></th>
@@ -43,6 +46,10 @@
       </div>  
       </td>
       <td>2020 09 08 | 21:00</td>
+      <td>
+      <a class="btn btn-warning">Edit</a>
+      <a class="btn btn-danger">Delete</a>
+      </td>
     </tr>
     <tr>
       <th scope="row"><i class="fas fa-check-square number-icon"></i></th>
@@ -57,6 +64,10 @@
       </div>  
       </td>
       <td>2020 09 08 | 21:00</td>
+      <td>
+      <a class="btn btn-warning">Edit</a>
+      <a class="btn btn-danger">Delete</a>
+      </td>
     </tr>
   </tbody>
 </table>
