@@ -1,5 +1,5 @@
 <div class="button-list text-center m-2">
-<a class="btn btn-success">Add New Task</a>
+<a class="btn btn-success new-prideti" href="<?php echo 'pages/add-task.view.php';?>">Add New Task</a>
 </div>
 <table class="table table-striped table-dark">
   <thead>

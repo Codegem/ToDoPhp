@@ -11,8 +11,9 @@
 <body>
 <div class="container-fluid">
 <?php 
-include 'inc/functions.php';
-require $_SERVER[''].'/opt/lampp/htdocs/TodoList/router.php';
+require $_SERVER['DOCUMENT_ROOT'].'/TodoList/router.php';
+// $kintamas = $_SERVER['DOCUMENT_ROOT'].'/TodoList/router.php';
+// echo $kintamas;
 ?>
 </div> 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
