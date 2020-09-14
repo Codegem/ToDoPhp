@@ -1,6 +1,25 @@
-<form action="submit">
+<?php
+require 'inc/functions.php';
+function createTask($subject, $priority) {
+    $connection = connectDB();
+    try {
+        if ($connection) {
+            $query = "INSERT INTO todo (subject,priority) VALUES (:subject,:priority,0)";
+            $statement = $connection->prepare($query);
+            $statement->bindParam(':labas', $subject, PDO::PARAM_STR);
+            $statement->bindParam(':priority', $priority, PDO::PARAM_STR);
+            $statement->execute();
+            header('Location:?p=home');
+        }
+    } catch (PDOException $e) {
+        echo 'Užduoties sukurti nepavyko: ' . $e->getMessage();
+    }
+    $connection = null;  // close a connection
+}
+?>
+<form method="post">
     <div class="form-group">
-        <label for="">Id</label>
+        <label for="id">Id</label>
         <select name="googlefont" id="id">
             <option selected disabled>Select id logo</option>
             <option value="1">1.<span><i class="fas fa-check-square number-icon"></i></span></option>
@@ -8,8 +27,8 @@
         </select>
     </div>
     <div class="form-group">
-        <label>Subject</label>
-        <input type="text">
+        <label for="subject">Subject</label>
+        <input type="text" name="subject">
     </div>
     <div class="form-group">
         <label for="priority">Priority</label>
@@ -30,7 +49,7 @@
         </select>
     </div>
     <div class="form-group">
-        <button class="btn btn-success" type="submit">Submit</button>
+        <button class="btn btn-success" name="btnsubmit" type="submit">Submit</button>
         <a href="<?='?p=home'?>" class="btn btn-danger">Grizti i pagrindini</a>
     </div>
 </form>
