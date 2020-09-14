@@ -1,5 +1,5 @@
 <div class="button-list text-center m-2">
-<a class="btn btn-success new-prideti" href="<?php echo 'pages/add-task.view.php';?>">Add New Task</a>
+<a class="btn btn-success new-prideti" href="<?='?p=add-task'?>">Add New Task</a>
 </div>
 <table class="table table-striped table-dark">
   <thead>
@@ -29,8 +29,8 @@
       </td>
       <td>2020 09 08 | 21:00</td>
       <td>
-      <a class="btn btn-warning">Edit</a>
-      <a class="btn btn-danger">Delete</a>
+      <a class="btn btn-warning" href="<?='?p=edit-task'?>">Edit</a>
+      <a class="btn btn-danger" href="<?='?p=delete-task'?>">Delete</a>
       </td>
     </tr>
     <tr>
@@ -47,8 +47,8 @@
       </td>
       <td>2020 09 08 | 21:00</td>
       <td>
-      <a class="btn btn-warning">Edit</a>
-      <a class="btn btn-danger">Delete</a>
+      <a class="btn btn-warning" href="<?='?p=edit-task'?>">Edit</a>
+      <a class="btn btn-danger" href="<?='?p=delete-task'?>">Delete</a>
       </td>
     </tr>
     <tr>
@@ -65,8 +65,8 @@
       </td>
       <td>2020 09 08 | 21:00</td>
       <td>
-      <a class="btn btn-warning">Edit</a>
-      <a class="btn btn-danger">Delete</a>
+      <a class="btn btn-warning" href="<?='?p=edit-task'?>">Edit</a>
+      <a class="btn btn-danger" href="<?='?p=delete-task'?>">Delete</a>
       </td>
     </tr>
   </tbody>

@@ -14,3 +14,16 @@
 .done i{
     color: grey;
 }
+
+/* form style START */
+
+form{
+    text-align: center;
+}
+
+button{
+    background-color: indigo;
+    border: none;
+}
+
+/* form style END */

@@ -1,6 +1,6 @@
-<form action="submit" >
+<form action="submit">
     <div class="form-group">
-        <label for="">Select id logo</label>
+        <label for="">Id</label>
         <select name="googlefont" id="id">
             <option selected disabled>Select id logo</option>
             <option value="1">1.<span><i class="fas fa-check-square number-icon"></i></span></option>
@@ -21,8 +21,8 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="status">Status</label>
-        <select name="status" id="status">
+        <label for="Due-Date">Due Date</label>
+        <select name=">Due-Date" id="Due-Date">
             <option selected disabled>Select Status</option>
             <option value="New">New</option>
             <option value="InProgres">InProgres</option>
@@ -31,5 +31,6 @@
     </div>
     <div class="form-group">
         <button class="btn btn-success" type="submit">Submit</button>
+        <a href="<?='?p=home'?>" class="btn btn-danger">Grizti i pagrindini</a>
     </div>
 </form>
