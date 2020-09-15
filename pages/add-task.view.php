@@ -1,10 +1,6 @@
 <?php
 if(isset($_POST['btnsubmit'])){
-    foreach ($_POST as $data){
-        echo $data."<br>";
-        } 
-        createTask($_POST['subject'],$_POST['priority']);
-
+        createTask($_POST['subject'],$_POST['priority'],$_POST['duedate']);
 }
 else{
 ?>
@@ -31,13 +27,8 @@ else{
         </select>
     </div>
     <div class="form-group">
-        <label for="Due-Date">Due Date</label>
-        <select name="Due-Date" id="Due-Date">
-            <option selected disabled>Select Status</option>
-            <option value="New">New</option>
-            <option value="InProgres">InProgres</option>
-            <option value="Complete">Complete</option>
-        </select>
+        <label for="duedate">Due Date</label>
+        <input type="date" id="duedate" name="duedate">
     </div>
     <div class="form-group">
         <button class="btn btn-success" name="btnsubmit" type="submit">Submit</button>

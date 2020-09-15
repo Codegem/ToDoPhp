@@ -14,16 +14,19 @@ function connectDB() {
 }
 
 
-function createTask($subject, $priority) {
+function createTask($subject, $priority, $duedate) {
     $connection = connectDB();
     try {
         if ($connection) {
-            $query = 'INSERT INTO todo (subject,priority) VALUES (":subject",":priority")';
+            var_dump($priority);
+            die();
+            $query = 'INSERT INTO todo (subject, priority, duedate) VALUES (":subject", ":priority", ":duedate")';
             $statement = $connection->prepare($query);
             $statement->bindParam(":subject", $subject, PDO::PARAM_STR);
             $statement->bindParam(":priority", $priority, PDO::PARAM_STR);
+            $statement->bindParam(":duedate", $duedate, PDO::PARAM_STR);
             $statement->execute();
-            header('Location:?p=home');
+            header('Location:?p=home'); 
         }
     } catch (PDOException $e) {
         echo 'Užduoties sukurti nepavyko: ' . $e->getMessage();
