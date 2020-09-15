@@ -1,21 +1,12 @@
 <?php
-require 'inc/functions.php';
-function createTask($subject, $priority) {
-    $connection = connectDB();
-    try {
-        if ($connection) {
-            $query = "INSERT INTO todo (subject,priority) VALUES (:subject,:priority,0)";
-            $statement = $connection->prepare($query);
-            $statement->bindParam(':labas', $subject, PDO::PARAM_STR);
-            $statement->bindParam(':priority', $priority, PDO::PARAM_STR);
-            $statement->execute();
-            header('Location:?p=home');
-        }
-    } catch (PDOException $e) {
-        echo 'Užduoties sukurti nepavyko: ' . $e->getMessage();
-    }
-    $connection = null;  // close a connection
+if(isset($_POST['btnsubmit'])){
+    foreach ($_POST as $data){
+        echo $data."<br>";
+        } 
+        createTask($_POST['subject'],$_POST['priority']);
+
 }
+else{
 ?>
 <form method="post">
     <div class="form-group">
@@ -41,7 +32,7 @@ function createTask($subject, $priority) {
     </div>
     <div class="form-group">
         <label for="Due-Date">Due Date</label>
-        <select name=">Due-Date" id="Due-Date">
+        <select name="Due-Date" id="Due-Date">
             <option selected disabled>Select Status</option>
             <option value="New">New</option>
             <option value="InProgres">InProgres</option>
@@ -53,3 +44,4 @@ function createTask($subject, $priority) {
         <a href="<?='?p=home'?>" class="btn btn-danger">Grizti i pagrindini</a>
     </div>
 </form>
+<?php } ?>
