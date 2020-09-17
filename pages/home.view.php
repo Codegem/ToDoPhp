@@ -15,11 +15,12 @@
     </tr>
   </thead>
   <tbody>
+    <?php foreach(getAllTasks() as $task) :?>
     <tr>
       <th scope="row"><i class="fas fa-check-square number-icon"></i></th>
-      <td class="done"><i class="fas fa-check"></i> Random Text</td>
-      <td class="text-center"><p class="bg-primary rounded">Normal</p></td>
-      <td>2020 09 08 | 21:00</td>
+      <td class=""><i class="fas fa-check"></i><?=$task['subject']; ?></td>
+      <td class="text-center"><p class="bg-primary rounded"><?=$task['priority']; ?></p></td>
+      <td><?=$task['duedate']; ?></td>
       <td>Complete</td>
       <td>
       <div class="progress">
@@ -33,42 +34,9 @@
       <a class="btn btn-danger" href="<?='?p=delete-task'?>">Delete</a>
       </td>
     </tr>
-    <tr>
-      <th scope="row"><i class="far fa-gem number-icon"></i></th>
-      <td><i class="fas fa-check"></i> Mark</td>
-      <td class="text-center"><p class="bg-danger rounded">High</p></td>
-      <td>2020 09 08 | 21:00</td>
-      <td>In Progress</td>
-      <td>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 80%;" 
-        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">80%</div>
-      </div>  
-      </td>
-      <td>2020 09 08 | 21:00</td>
-      <td>
-      <a class="btn btn-warning" href="<?='?p=edit-task'?>">Edit</a>
-      <a class="btn btn-danger" href="<?='?p=delete-task'?>">Delete</a>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row"><i class="fas fa-check-square number-icon"></i></th>
-      <td><i class="fas fa-check"></i> Otto</td>
-      <td class="text-center"><p class="bg-success rounded">Low</p></td>
-      <td>2020 09 08 | 21:00</td>
-      <td>New</td>
-      <td>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 40%;" 
-        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">40%</div>
-      </div>  
-      </td>
-      <td>2020 09 08 | 21:00</td>
-      <td>
-      <a class="btn btn-warning" href="<?='?p=edit-task'?>">Edit</a>
-      <a class="btn btn-danger" href="<?='?p=delete-task'?>">Delete</a>
-      </td>
-    </tr>
+    <?php endforeach;?>
   </tbody>
 </table>
+
+
 

@@ -18,9 +18,7 @@ function createTask($subject, $priority, $duedate) {
     $connection = connectDB();
     try {
         if ($connection) {
-            var_dump($priority);
-            die();
-            $query = 'INSERT INTO todo (subject, priority, duedate) VALUES (":subject", ":priority", ":duedate")';
+            $query = 'INSERT INTO todo (subject, priority, duedate) VALUES (:subject, :priority, :duedate)';
             $statement = $connection->prepare($query);
             $statement->bindParam(":subject", $subject, PDO::PARAM_STR);
             $statement->bindParam(":priority", $priority, PDO::PARAM_STR);
@@ -39,7 +37,7 @@ function getAllTasks() {
     $results = [];
     try {
         if($connection) {
-            $query = "SELECT * FROM tasks";
+            $query = "SELECT * FROM todo";
             $statement = $connection->prepare($query);
             $statement->execute();
             $results = $statement->fetchAll();
@@ -49,4 +47,20 @@ function getAllTasks() {
     }
     $connection = null;
     return $results;
+}
+
+function deleteTask($id) {
+    $connection = connectDB();
+    try {
+        if ($connection) {
+            $query = "DELETE FROM todo WHERE id = :id";
+            $statement = $connection->prepare($query);
+            $statement->bindParam(":id", $id, PDO::PARAM_INT);
+            $statement->execute();
+            header('Location:?p=home');
+        }
+    } catch (PDOException $e) {
+        echo 'Delete task query failed: ' . $e->getMessage();
+    }
+    $connection = null;
 }
