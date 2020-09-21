@@ -19,13 +19,44 @@
     <tr>
       <th scope="row"><i class="fas fa-check-square number-icon"></i></th>
       <td class=""><i class="fas fa-check"></i><?=$task['subject']; ?></td>
-      <td class="text-center"><p class="bg-primary rounded"><?=$task['priority']; ?></p></td>
+      <td class="text-center"><p class="
+      <?php switch ($task['priority'] ?? 'low'){
+        case 'low';
+        echo ($varLow);
+        break;
+        case 'normal';
+        echo ($varNormal);
+        break;
+        case 'high';
+        echo ($varHigh);
+        break;
+        } ?>"><?=$task['priority']?></p></td>
       <td><?=$task['duedate']; ?></td>
       <td><?php if($task['status'] == 0){echo('In Progress');}else{echo('Completed');}?></td>
       <td>
       <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 60%;" 
-        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60%</div>
+        <div class="progress-bar" role="progressbar" style="width: 
+        <?php switch ($task['status'] ?? 0){
+          case 0;
+          echo ($progress);
+          break;
+          case 1;
+          echo ($complete);
+          break;
+          }
+        ?>
+        ;" 
+        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+        <?php switch ($task['status'] ?? 0){
+          case 0;
+          echo ($progress);
+          break;
+          case 1;
+          echo ($complete);
+          break;
+          }
+        ?>
+      </div>
       </div>  
       </td>
       <td><?=$task['modifiedon']?></td>
