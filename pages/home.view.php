@@ -31,7 +31,7 @@
       <td>2020 09 08 | 21:00</td>
       <td>
       <a class="btn btn-warning" href="<?='?p=edit-task'?>">Edit</a>
-      <a class="btn btn-danger" href="<?='?p=delete-task'?>">Delete</a>
+      <a class="btn btn-danger" href="?p=delete-task&id=<?=$task['id']; ?>">Delete</a>
       </td>
     </tr>
     <?php endforeach;?>
