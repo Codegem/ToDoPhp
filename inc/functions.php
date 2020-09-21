@@ -14,15 +14,17 @@ function connectDB() {
 }
 
 
-function createTask($subject, $priority, $duedate) {
+function createTask($subject, $priority, $duedate, $status) {
+    $status = 0;
     $connection = connectDB();
     try {
         if ($connection) {
-            $query = 'INSERT INTO todo (subject, priority, duedate) VALUES (:subject, :priority, :duedate)';
+            $query = 'INSERT INTO todo (subject, priority, duedate, status) VALUES (:subject, :priority, :duedate, :status)';
             $statement = $connection->prepare($query);
             $statement->bindParam(":subject", $subject, PDO::PARAM_STR);
             $statement->bindParam(":priority", $priority, PDO::PARAM_STR);
             $statement->bindParam(":duedate", $duedate, PDO::PARAM_STR);
+            $statement->bindParam(":status", $status, PDO::PARAM_STR);
             $statement->execute();
             header('Location:?p=home'); 
         }
@@ -64,3 +66,20 @@ function deleteTask($id) {
     }
     $connection = null;
 }
+
+    function completeTask($id) {
+        $connection = connectDB();
+        try {
+            if($connection) {
+                $query=("UPDATE todo SET status = 1 WHERE id = :id");
+                $statement = $connection->prepare($query);
+                $query = $statement->fetchAll();
+                $statement->bindParam(":id", $id, PDO::PARAM_INT);
+                $statement->execute();
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        $connection = null;
+    }
+

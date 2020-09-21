@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['btnsubmit'])){
-        createTask($_POST['subject'],$_POST['priority'],$_POST['duedate']);
+        createTask($_POST['subject'],$_POST['priority'],$_POST['duedate'], $_POST['status']);
 }
 else{
 ?>

@@ -1,5 +1,5 @@
 <div class="button-list text-center m-2">
-<a class="btn btn-success new-prideti" href="<?='?p=add-task'?>">Add New Task</a>
+<a class="btn btn-warning new-prideti" href="<?='?p=add-task'?>">Add New Task</a>
 </div>
 <table class="table table-striped table-dark">
   <thead>
@@ -11,7 +11,7 @@
       <th scope="col">Status</th>
       <th scope="col">Percent Complete</th>
       <th scope="col">Modified On</th>
-      <th scope="col">Delete/Edit</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -21,16 +21,16 @@
       <td class=""><i class="fas fa-check"></i><?=$task['subject']; ?></td>
       <td class="text-center"><p class="bg-primary rounded"><?=$task['priority']; ?></p></td>
       <td><?=$task['duedate']; ?></td>
-      <td>Complete</td>
+      <td><?php if($task['status'] == 0){echo('In Progress');}else{echo('Completed');}?></td>
       <td>
       <div class="progress">
         <div class="progress-bar" role="progressbar" style="width: 60%;" 
         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60%</div>
       </div>  
       </td>
-      <td>2020 09 08 | 21:00</td>
+      <td><?=$task['modifiedon']?></td>
       <td>
-      <a class="btn btn-warning" href="<?='?p=edit-task'?>">Edit</a>
+      <a class="btn btn-success" href="?p=complete-task&id=<?=$task['id']; ?>">Complete</a>
       <a class="btn btn-danger" href="?p=delete-task&id=<?=$task['id']; ?>">Delete</a>
       </td>
     </tr>
