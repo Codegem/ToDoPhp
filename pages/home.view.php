@@ -18,7 +18,11 @@
     <?php foreach(getAllTasks() as $task) :?>
     <tr>
       <th scope="row"><i class="fas fa-check-square number-icon"></i></th>
-      <td class=""><i class="fas fa-check"></i><?=$task['subject']; ?></td>
+      <td>
+        <a href="?p=show-task&id=<?=$task['id']; ?> ">
+          <i class="fas fa-check"></i><?=$task['subject']; ?>
+          </a>
+      </td>
       <td class="text-center"><p class="
       <?php switch ($task['priority'] ?? 'low'){
         case 'low';
@@ -61,13 +65,19 @@
       </td>
       <td><?=$task['modifiedon']?></td>
       <td>
-      <a class="btn btn-success" href="?p=complete-task&id=<?=$task['id']; ?>">Complete</a>
+      <?php switch ($task['status'] ?? 0){
+          case 0;
+          echo ($btnon);
+          break;
+          case 1;
+          echo ($btnoff);
+          break;
+          }
+        ?>
       <a class="btn btn-danger" href="?p=delete-task&id=<?=$task['id']; ?>">Delete</a>
       </td>
     </tr>
     <?php endforeach;?>
   </tbody>
 </table>
-
-
-
+<!-- Modal -->

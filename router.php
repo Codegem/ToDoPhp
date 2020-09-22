@@ -15,6 +15,9 @@ case 'complete-task';
 case 'edit-task';
     include "pages/edit-task.view.php";
     break;
+case 'show-task';
+    include "pages/show-task.view.php";
+    break;
 
 default:
     include "pages/error.view.php";

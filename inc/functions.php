@@ -83,3 +83,21 @@ function deleteTask($id) {
         $connection = null;
     }
 
+    function taskSummary($id) {
+        $connection = connectDB();
+        $summary = [];
+        try {
+            if($connection) {
+                $query = "SELECT * FROM todo WHERE id = :id";
+                $statement = $connection->prepare($query);
+                $statement->bindParam(":id", $id, PDO::PARAM_INT); 
+                $statement->execute();
+                $summary = $statement->fetchAll();
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        $connection = null;
+        return $summary;
+    }
+    
